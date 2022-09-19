@@ -14,9 +14,6 @@ function checkMaxLenght(testableStr, maxLenght){
   if(typeof testableStr !== 'string') {
     testableStr = String(testableStr);
   }
-  if(testableStr.length <= maxLenght) {
-    return true;
-  }
-  return false;
+  return testableStr.length <= maxLenght;
 }
 
