@@ -1,4 +1,4 @@
-function getRandomInt(left, right) {
+function getRandomPositiveInt(left, right) {
   if (right === left){
     return left;
   }
@@ -16,4 +16,5 @@ function checkMaxLenght(testableStr, maxLenght){
   }
   return testableStr.length <= maxLenght;
 }
-
+checkMaxLenght('qw', 3);
+getRandomPositiveInt(1,10);
