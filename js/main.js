@@ -5,6 +5,7 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 const checkStringLength = (string, length) => string.length <= length;
+checkStringLength();
 
 const MAX_COUNT_PHOTOS = 25;
 
@@ -41,7 +42,7 @@ const createComment = (id) => ({
   id,
   avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
   message: MESSAGE[getRandomPositiveInteger(0, MESSAGE.length - 1)],
-  name:  NAMES[getRandomPositiveInteger(0, NAMES.length - 1)],
+  name: NAMES[getRandomPositiveInteger(0, NAMES.length - 1)],
 });
 
 const createUserData = (id) => ({
