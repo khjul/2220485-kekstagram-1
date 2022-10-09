@@ -1,11 +1,4 @@
-const getRandomPositiveInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-const checkStringLength = (string, length) => string.length <= length;
-checkStringLength();
+
 
 const MAX_COUNT_PHOTOS = 25;
 
@@ -38,6 +31,16 @@ const CountLike = {
   MAX: 200,
 };
 
+const getRandomPositiveInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
+const checkStringLength = (string, length) => string.length <= length;
+checkStringLength();
+
 const createComment = (id) => ({
   id,
   avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
@@ -54,5 +57,5 @@ const createUserData = (id) => ({
 });
 
 // eslint-disable-next-line no-return-assign
-const PHOTOS = Array.from({length: 25}).map((element, index) => element = createUserData(index + 1));
-PHOTOS();
+const createPhotoDescription = Array.from({length: 25}).map((element, index) => element = createUserData(index + 1));
+createPhotoDescription();
