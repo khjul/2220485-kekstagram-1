@@ -1,4 +1,3 @@
-import {createUserData} from './data.js';
+import { createThumbnails } from './createThumbnails.js';
 
-// eslint-disable-next-line no-return-assign
-const PHOTOS = () => Array.from({length: 25}).map((element, index) => element = createUserData(index + 1));(PHOTOS());
+createThumbnails();
