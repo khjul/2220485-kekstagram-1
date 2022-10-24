@@ -1,5 +1,3 @@
-import { photos } from './data.js';
-
 const getPictureTemplate = ({url, comments, likes}) => `<a href="#" class="picture">
 <img class="picture__img" src="${url}" width="182" height="182" alt="Случайная фотография">
 <p class="picture__info">
@@ -9,6 +7,6 @@ const getPictureTemplate = ({url, comments, likes}) => `<a href="#" class="pictu
 </a>`;
 
 const mainContainer = document.querySelector('.js-pictures');
-const createThumbnails = () => mainContainer.insertAdjacentHTML('beforeend', photos().map((photo) => getPictureTemplate(photo)).join(''));
-export {createThumbnails};
+const createThumbnails = (data) => mainContainer.insertAdjacentHTML('beforeend', data.map((photo) => getPictureTemplate(photo)).join(''));
 
+export {createThumbnails};

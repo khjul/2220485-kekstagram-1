@@ -16,7 +16,6 @@ const createUserData = (id) => ({
   comments: Array.from({length:getRandomPositiveInteger(1, COUNT_COMMENTS)}).map((_,index) => createComment(index + 1))
 });
 
-// eslint-disable-next-line no-return-assign
-const photos = () => Array.from({length: MAX_COUNT_PHOTOS}).map((_, index) => createUserData(index + 1));
+const getPhotos = () => Array.from({length: MAX_COUNT_PHOTOS}).map((_, index) => createUserData(index + 1));
 
-export {photos};
+export {getPhotos};
