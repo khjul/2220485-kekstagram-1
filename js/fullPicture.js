@@ -34,7 +34,10 @@ const renderFullPicture = (picture) => {
 
 const onPictureEscKeyDown = (evt) => {
   if (evt.key === 'Escape') {
-    closePicture();
+    body.classList.remove('modal-open');
+    fullPicture.classList.add('hidden');
+
+    document.removeEventListener('keydown', onPictureEscKeyDown);
   }
 };
 
