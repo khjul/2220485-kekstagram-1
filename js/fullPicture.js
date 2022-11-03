@@ -32,21 +32,21 @@ const renderFullPicture = (picture) => {
   updateComments(picture.comments);
 };
 
+const closePicture = () => {
+  body.classList.remove('modal-open');
+  fullPicture.classList.add('hidden');
+};
+
 const onPictureEscKeyDown = (evt) => {
   if (evt.key === 'Escape') {
-    body.classList.remove('modal-open');
-    fullPicture.classList.add('hidden');
-
+    closePicture();
     document.removeEventListener('keydown', onPictureEscKeyDown);
   }
 };
 
-const closePicture = () => {
-  body.classList.remove('modal-open');
-  fullPicture.classList.add('hidden');
-
-  closeButton.removeEventListener('click', closePicture);
-  document.removeEventListener('keydown', onPictureEscKeyDown);
+const onCloseButton = () => {
+  closePicture();
+  closeButton.removeEventListener('click', onCloseButton);
 };
 
 const openFullPicture = (element) => {
@@ -58,9 +58,9 @@ const openFullPicture = (element) => {
 
   renderFullPicture(element);
 
-  closeButton.addEventListener('click', closePicture);
+  closeButton.addEventListener('click', onCloseButton);
   document.addEventListener('keydown', onPictureEscKeyDown);
 };
 
-export{openFullPicture};
+export {openFullPicture};
 

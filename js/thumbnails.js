@@ -15,24 +15,24 @@ const renderThumbnails = () => {
   mainContainer.insertAdjacentHTML('beforeend', photos.map((photo) => getPictureTemplate(photo)).join(''));
 };
 
-const getPictures = () => {
+const onPictureClick = (evt) => {
+  evt.preventDefault();
+  const target = evt.target;
+  const parent = target.closest('.js-picture');
+  const id = parent.dataset.id;
+
+  openFullPicture(photos[id - 1]);
+};
+
+const makeBigPictures = () => {
   renderThumbnails();
   const pictures = document.querySelectorAll('.js-picture');
-
-  const onPictureClick = (evt) => {
-    evt.preventDefault();
-    const target = evt.target;
-    const parent = target.closest('.js-picture');
-    const id = parent.dataset.id;
-
-    openFullPicture(photos[id - 1]);
-  };
 
   pictures.forEach((picture) => {
     picture.addEventListener('click', onPictureClick);
   });
 };
 
-export {getPictures};
+export {makeBigPictures};
 
 
