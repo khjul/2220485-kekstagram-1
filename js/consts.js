@@ -1,5 +1,4 @@
 const MAX_COUNT_PHOTOS = 25;
-const COUNT_COMMENTS = 8;
 
 const MESSAGE = [
   'Всё отлично!',
@@ -35,5 +34,10 @@ const CountAvatar = {
   MAX: 6,
 };
 
-export {MAX_COUNT_PHOTOS, MESSAGE,DESCRIPTION, NAMES, CountAvatar, CountLike, COUNT_COMMENTS};
+const CountComment = {
+  MIN: 1,
+  MAX: 8,
+};
+
+export {MAX_COUNT_PHOTOS, MESSAGE,DESCRIPTION, NAMES, CountAvatar, CountLike, CountComment};
 
