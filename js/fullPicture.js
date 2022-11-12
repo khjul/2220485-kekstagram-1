@@ -62,5 +62,4 @@ const openFullPicture = (element) => {
   document.addEventListener('keydown', onPictureEscKeyDown);
 };
 
-export {openFullPicture};
-
+export { openFullPicture };
