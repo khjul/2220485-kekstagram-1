@@ -1,5 +1,4 @@
 import { openFullPicture } from './fullPicture.js';
-import { getPhotos } from './data.js';
 
 const getPictureTemplate = ({id, url, comments, likes}) => `<a href="#" class="picture js-picture" data-id="${id}">
 <img class="picture__img" src="${url}" width="182" height="182" alt="Случайная фотография">
@@ -9,30 +8,24 @@ const getPictureTemplate = ({id, url, comments, likes}) => `<a href="#" class="p
 </p>
 </a>`;
 
-const photos = getPhotos();
-const renderThumbnails = () => {
+const renderThumbnails = (data) => {
   const mainContainer = document.querySelector('.js-pictures');
-  mainContainer.insertAdjacentHTML('beforeend', photos.map((photo) => getPictureTemplate(photo)).join(''));
+  mainContainer.insertAdjacentHTML('beforeend', data.map((photo) => getPictureTemplate(photo)).join(''));
 };
 
-const onPictureClick = (evt) => {
-  evt.preventDefault();
-  const target = evt.target;
-  const parent = target.closest('.js-picture');
-  const id = parent.dataset.id;
-
-  openFullPicture(photos[id - 1]);
-};
-
-const makeBigPictures = () => {
-  renderThumbnails();
+const makeBigPictures = (data) => {
+  renderThumbnails(data);
   const pictures = document.querySelectorAll('.js-picture');
 
   pictures.forEach((picture) => {
-    picture.addEventListener('click', onPictureClick);
+    picture.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      const target = evt.target;
+      const parent = target.closest('.js-picture');
+      const id = parent.dataset.id;
+      openFullPicture(data[id - 1]);
+    });
   });
 };
 
-export {makeBigPictures};
-
-
+export { makeBigPictures };

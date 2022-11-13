@@ -18,4 +18,4 @@ const createUserData = (id) => ({
 
 const getPhotos = () => Array.from({length: MAX_COUNT_PHOTOS}).map((_, index) => createUserData(index + 1));
 
-export {getPhotos};
+export { getPhotos };
