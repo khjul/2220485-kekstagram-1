@@ -24,13 +24,12 @@ const onEscKeyDown = (evt) => {
   }
 };
 
-closeEditingFormButton.addEventListener('click', closeEditingForm);
-
 const renderUploadForm = () => {
   uploadFileButton.addEventListener('change', () => {
     editingForm.classList.remove('hidden');
     body.classList.add('modal-open');
     document.addEventListener('keydown', onEscKeyDown);
+    closeEditingFormButton.addEventListener('click', closeEditingForm);
     buttonAdjustment();
   });
   validateForm();

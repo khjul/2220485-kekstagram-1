@@ -52,4 +52,7 @@ const ErrorMessage = {
   COMMENT_MAX_LENGTH: 'Длина комментария не может составлять больше 140 символов'
 };
 
-export { MAX_COUNT_PHOTOS, MESSAGE,DESCRIPTION, NAMES, CountAvatar, CountLike, CountComment, MAX_SYMBOLS, MAX_HASHTAGS, ErrorMessage };
+const DEFAULT_RENDERED_COMMENTS = 5;
+const STEP_ADDED_COMMENTS = 5;
+
+export { MAX_COUNT_PHOTOS, MESSAGE,DESCRIPTION, NAMES, DEFAULT_RENDERED_COMMENTS, STEP_ADDED_COMMENTS, CountAvatar, CountLike, CountComment, MAX_SYMBOLS, MAX_HASHTAGS, ErrorMessage };
