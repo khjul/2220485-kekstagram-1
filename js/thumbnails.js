@@ -23,7 +23,7 @@ const makeBigPictures = (data) => {
       const target = evt.target;
       const parent = target.closest('.js-picture');
       const id = parent.dataset.id;
-      openFullPicture(data[id - 1]);
+      openFullPicture(data[id]);
     });
   });
 };

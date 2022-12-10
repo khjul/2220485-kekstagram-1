@@ -99,4 +99,4 @@ inputComment.addEventListener('keydown', (evt) => {
   }
 });
 
-export { validateForm, buttonAdjustment };
+export { validateForm, buttonAdjustment, form };

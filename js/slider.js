@@ -1,6 +1,6 @@
 import { MAX_SCALE, MIN_SCALE, STEP_SCALE } from './consts.js';
 const scaleControlValue = document.querySelector('.scale__control--value');
-const picturePreview = document.querySelector('.img-upload__preview');
+const picturePreview = document.querySelector('.img-upload__preview').querySelector('img');
 
 const onScaleControlSmallerButtonClick = () => {
   const inputScale = Number.parseInt(scaleControlValue.value, 10);

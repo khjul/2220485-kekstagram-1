@@ -1,46 +1,5 @@
-
-const MAX_COUNT_PHOTOS = 25;
 const MAX_SYMBOLS = 20;
 const MAX_HASHTAGS = 5;
-
-const MESSAGE = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-];
-
-const DESCRIPTION = [
-  'Красота!',
-  'Необыкновенно!',
-  'Жизнь прекрасна!',
-];
-
-const NAMES = [
-  'Анастасия',
-  'Михаил',
-  'Елизавета',
-  'Леонид',
-  'Максим',
-  'Светлана',
-];
-
-const CountLike = {
-  MIN: 15,
-  MAX: 200,
-};
-
-const CountAvatar = {
-  MIN: 1,
-  MAX: 6,
-};
-
-const CountComment = {
-  MIN: 1,
-  MAX: 8,
-};
 
 const ErrorMessage = {
   SEPARETED_BY_SPACES: 'Хэш-теги разделяются пробелами',
@@ -59,4 +18,4 @@ const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const STEP_SCALE = 25;
 
-export { MAX_COUNT_PHOTOS, MESSAGE,DESCRIPTION, NAMES, DEFAULT_RENDERED_COMMENTS, STEP_ADDED_COMMENTS, CountAvatar, CountLike, CountComment, MAX_SYMBOLS, MAX_HASHTAGS, ErrorMessage, MAX_SCALE, MIN_SCALE, STEP_SCALE };
+export { DEFAULT_RENDERED_COMMENTS, STEP_ADDED_COMMENTS, MAX_SYMBOLS, MAX_HASHTAGS, ErrorMessage, MAX_SCALE, MIN_SCALE, STEP_SCALE };
