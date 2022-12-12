@@ -56,7 +56,7 @@ const errorGetDataMessage = () => {
   alertForm.style.textAlign = 'center';
   alertForm.style.backgroundColor = '#FF6666';
 
-  alertForm.textContent = "Произошла ошибка при загрузке фотографий. Обновите страницу.";
+  alertForm.textContent = 'Произошла ошибка при загрузке фотографий. Обновите страницу.';
 
   document.body.append(alertForm);
 
