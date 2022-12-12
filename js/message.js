@@ -1,4 +1,5 @@
 import { isEscapeKey } from './utils.js';
+import { ALERT_SHOW_TIME } from './consts.js';
 
 const errorMessageTemplate = `<section class="error js-message">
 <div class="error__inner">
