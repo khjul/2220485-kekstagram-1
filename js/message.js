@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+import { isEscapeKey } from './utils.js';
 
 const errorMessageTemplate = `<section class="error js-message">
 <div class="error__inner">
@@ -43,4 +43,25 @@ function removeMessage() {
   message.remove();
 }
 
-export { renderMessage };
+const errorGetDataMessage = () => {
+  const alertForm = document.createElement('div');
+  alertForm.style.zIndex = '100';
+  alertForm.style.position = 'absolute';
+  alertForm.style.left = '0';
+  alertForm.style.top = '0';
+  alertForm.style.right = '0';
+  alertForm.style.padding = '15px';
+  alertForm.style.fontSize = '20px';
+  alertForm.style.textAlign = 'center';
+  alertForm.style.backgroundColor = '#FF6666';
+
+  alertForm.textContent = "Произошла ошибка при загрузке фотографий. Обновите страницу.";
+
+  document.body.append(alertForm);
+
+  setTimeout(() => {
+    alertForm.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+export { renderMessage, errorGetDataMessage };

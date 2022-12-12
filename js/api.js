@@ -1,20 +1,22 @@
-const getData = (onSuccess) => {
-  fetch('https://26.javascript.pages.academy/kekstagram/data')
+import { Url } from './consts.js';
+
+const getData = (onSuccess, onError) => {
+  fetch(Url.GET)
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error();
     })
     .then((data) => {
       onSuccess(data);
     })
-    .catch(() => {});
+    .catch(() => {
+      onError();
+    });
 };
 
 const sendData = (onSuccess, onError, body) => {
-  fetch(
-    'https://26.javascript.pages.academy/kekstagram',
+  fetch(Url.POST,
     {
       method: 'POST',
       body: body,

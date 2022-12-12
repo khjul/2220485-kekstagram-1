@@ -1,4 +1,5 @@
-import { MAX_HASHTAGS, MAX_SYMBOLS, ErrorMessage } from './consts.js';
+import { MAX_HASHTAGS, MAX_SYMBOLS, COMMENT_MAX_LENGTH, ErrorMessage } from './consts.js';
+import { checkStringLength } from './utils.js';
 
 const submitButton = document.querySelector('.img-upload__submit');
 
@@ -25,7 +26,7 @@ const hashtagHandler = (value) => {
 
   const inputArray = inputText.split(/\s+/);
 
-  if (inputArray.lenght === 0) {
+  if (inputArray.length === 0) {
     return true;
   }
 
@@ -72,7 +73,7 @@ const buttonAdjustment = () => {
 
 const validateForm = () => {
   pristine.addValidator(inputHashtag, hashtagHandler, error);
-  pristine.addValidator(inputComment, (value) => value.length <= 140, ErrorMessage.COMMENT_MAX_LENGTH);
+  pristine.addValidator(inputComment, (value) => checkStringLength(value, COMMENT_MAX_LENGTH), ErrorMessage.COMMENT_MAX_LENGTH);
   buttonAdjustment();
 };
 

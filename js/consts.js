@@ -1,7 +1,8 @@
-const MAX_SYMBOLS = 20;
-const MAX_HASHTAGS = 5;
+export const MAX_SYMBOLS = 20;
+export const MAX_HASHTAGS = 5;
+export const COMMENT_MAX_LENGTH = 140;
 
-const ErrorMessage = {
+export const ErrorMessage = {
   SEPARETED_BY_SPACES: 'Хэш-теги разделяются пробелами',
   START_WITH: 'Хэш-тег должен начинаться с символа #',
   NO_REPEAT: 'Хэш-теги не должны повторяться',
@@ -11,11 +12,18 @@ const ErrorMessage = {
   COMMENT_MAX_LENGTH: 'Длина комментария не может составлять больше 140 символов'
 };
 
-const DEFAULT_RENDERED_COMMENTS = 5;
-const STEP_ADDED_COMMENTS = 5;
+export const DEFAULT_RENDERED_COMMENTS = 5;
+export const STEP_ADDED_COMMENTS = 5;
 
-const MIN_SCALE = 25;
-const MAX_SCALE = 100;
-const STEP_SCALE = 25;
+export const Scale = {
+  MIN: 25,
+  STEP: 25,
+  MAX: 100
+};
 
-export { DEFAULT_RENDERED_COMMENTS, STEP_ADDED_COMMENTS, MAX_SYMBOLS, MAX_HASHTAGS, ErrorMessage, MAX_SCALE, MIN_SCALE, STEP_SCALE };
+export const Url = {
+  'GET': 'https://26.javascript.pages.academy/kekstagram/data',
+  'POST': 'https://26.javascript.pages.academy/kekstagram'
+};
+
+export const ALERT_SHOW_TIME = 5000;

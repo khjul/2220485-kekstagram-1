@@ -4,6 +4,7 @@ import { onFilterButtonChange, effectsList } from './effects.js';
 import { onScaleControlSmallerButtonClick, onScaleControlBiggerButtonClick } from './slider.js';
 import { sendData } from './api.js';
 import { renderMessage } from './message.js';
+import { initEffects } from './effects.js';
 
 const uploadFileButton = document.querySelector('#upload-file');
 const editingForm = document.querySelector('.img-upload__overlay');
@@ -16,7 +17,7 @@ const scaleControlSmallerButton = document.querySelector('.scale__control--small
 const scaleControlBiggerButton = document.querySelector('.scale__control--bigger');
 const imgPreview = document.querySelector('.img-upload__preview').querySelector('img');
 
-const closeEditingForm = () => {
+const closeUploadForm = () => {
   body.classList.remove('modal-open');
   editingForm.classList.add('hidden');
   uploadFileButton.value = '';
@@ -26,8 +27,8 @@ const closeEditingForm = () => {
   document.removeEventListener('keydown', onEscKeyDown);
 };
 
-const closeEditingFormToDefault = () => {
-  closeEditingForm();
+const closeUploadFormToDefault = () => {
+  closeUploadForm();
   imgPreview.removeAttribute('class');
   imgPreview.removeAttribute('style');
   form.reset();
@@ -35,26 +36,24 @@ const closeEditingFormToDefault = () => {
 
 function onEscKeyDown(evt) {
   if (evt.key === 'Escape') {
-    closeEditingFormToDefault();
+    closeUploadFormToDefault();
     document.removeEventListener('keydown', onEscKeyDown);
   }
 }
 
-const setEditingFormSubmit = (onSuccess, onError) => {
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
+const onUploadFormSubmit = (evt) => {
+  evt.preventDefault();
 
-    sendData(() => {
-      onSuccess();
-      renderMessage(true);
-    },
-    () => {
-      onError();
-      renderMessage(false);
-    },
-    new FormData(evt.target),
-    );
-  });
+  sendData(() => {
+    closeUploadFormToDefault();
+    renderMessage(true);
+  },
+  () => {
+    closeUploadForm();
+    renderMessage(false);
+  },
+  new FormData(evt.target),
+  );
 };
 
 const renderUploadForm = () => {
@@ -62,15 +61,16 @@ const renderUploadForm = () => {
     editingForm.classList.remove('hidden');
     body.classList.add('modal-open');
     document.addEventListener('keydown', onEscKeyDown);
-    closeEditingFormButton.addEventListener('click', closeEditingFormToDefault);
+    closeEditingFormButton.addEventListener('click', closeUploadFormToDefault);
     buttonAdjustment();
     sliderWrapper.classList.add('hidden');
     effectsList.addEventListener('change', onFilterButtonChange);
     scaleControlSmallerButton.addEventListener('click', onScaleControlSmallerButtonClick);
     scaleControlBiggerButton.addEventListener('click', onScaleControlBiggerButtonClick);
   });
+  initEffects();
   validateForm();
-  setEditingFormSubmit(closeEditingFormToDefault, closeEditingForm);
+  form.addEventListener('submit', onUploadFormSubmit);
 };
 
 export { renderUploadForm };

@@ -1,5 +1,5 @@
-import { isEscapeKey } from './util.js';
-import {STEP_ADDED_COMMENTS, DEFAULT_RENDERED_COMMENTS} from './consts.js';
+import { isEscapeKey } from './utils.js';
+import { STEP_ADDED_COMMENTS, DEFAULT_RENDERED_COMMENTS } from './consts.js';
 
 const fullPicture = document.querySelector('.big-picture');
 const body = document.querySelector('body');
