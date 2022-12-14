@@ -1,9 +1,8 @@
-import { getPhotos } from './data.js';
 import { renderUploadForm } from './form.js';
 import { makeBigPictures } from './thumbnails.js';
-import { initEffects } from './effects.js';
+import { getData } from './api.js';
+import { errorGetDataMessage } from './message.js';
 
-const data = getPhotos();
-makeBigPictures(data);
+getData((photos) => makeBigPictures(photos), () => errorGetDataMessage());
 renderUploadForm();
-initEffects();
+
