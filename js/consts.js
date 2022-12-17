@@ -1,6 +1,8 @@
 export const MAX_SYMBOLS = 20;
 export const MAX_HASHTAGS = 5;
 export const COMMENT_MAX_LENGTH = 140;
+export const TIMEOUT_DELAY = 500;
+export const MAX_COUNT_RANDOM_PHOTOS = 10;
 
 export const ErrorMessage = {
   SEPARETED_BY_SPACES: 'Хэш-теги разделяются пробелами',

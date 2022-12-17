@@ -5,6 +5,8 @@ const getData = (onSuccess, onError) => {
     .then((response) => {
       if (response.ok) {
         return response.json();
+      } else {
+        onError();
       }
     })
     .then((data) => {
