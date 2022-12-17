@@ -29,3 +29,5 @@ export const Url = {
 };
 
 export const ALERT_SHOW_TIME = 5000;
+
+export const FILE_TYPES = ['jpg', 'jpeg', 'png'];

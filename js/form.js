@@ -5,6 +5,7 @@ import { onScaleControlSmallerButtonClick, onScaleControlBiggerButtonClick } fro
 import { sendData } from './api.js';
 import { renderMessage } from './message.js';
 import { initEffects } from './effects.js';
+import { FILE_TYPES } from './consts.js';
 
 const uploadFileButton = document.querySelector('#upload-file');
 const editingForm = document.querySelector('.img-upload__overlay');
@@ -16,6 +17,7 @@ const sliderWrapper = document.querySelector('.img-upload__effect-level');
 const scaleControlSmallerButton = document.querySelector('.scale__control--smaller');
 const scaleControlBiggerButton = document.querySelector('.scale__control--bigger');
 const imgPreview = document.querySelector('.img-upload__preview').querySelector('img');
+const fileChooser = document.querySelector('.img-upload__start input[type=file]');
 
 const closeUploadForm = () => {
   body.classList.remove('modal-open');
@@ -56,6 +58,15 @@ const onUploadFormSubmit = (evt) => {
   );
 };
 
+const onFileChooserChange = () => {
+  const file = fileChooser.files[0];
+  const fileName = file.name.toLowerCase();
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+  if (matches) {
+    imgPreview.src = URL.createObjectURL(file);
+  }
+};
+
 const renderUploadForm = () => {
   uploadFileButton.addEventListener('change', () => {
     editingForm.classList.remove('hidden');
@@ -68,6 +79,8 @@ const renderUploadForm = () => {
     scaleControlSmallerButton.addEventListener('click', onScaleControlSmallerButtonClick);
     scaleControlBiggerButton.addEventListener('click', onScaleControlBiggerButtonClick);
   });
+
+  fileChooser.addEventListener('change', onFileChooserChange);
   initEffects();
   validateForm();
   form.addEventListener('submit', onUploadFormSubmit);
