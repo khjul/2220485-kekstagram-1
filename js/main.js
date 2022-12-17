@@ -5,4 +5,3 @@ import { initFilters } from './filter.js';
 
 getData((photos) => initFilters(photos), () => errorGetDataMessage());
 renderUploadForm();
-
