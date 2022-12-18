@@ -2,8 +2,6 @@ import { openFullPicture } from './fullPicture.js';
 
 const picturesContainer = document.querySelector('.pictures');
 
-let photos = [];
-
 const getPictureTemplate = ({id, url, comments, likes}) => `<a href="#" class="picture js-picture" data-id="${id}">
 <img class="picture__img" src="${url}" width="182" height="182" alt="Случайная фотография">
 <p class="picture__info">
@@ -11,6 +9,8 @@ const getPictureTemplate = ({id, url, comments, likes}) => `<a href="#" class="p
   <span class="picture__likes">${likes}</span>
 </p>
 </a>`;
+
+let photos = [];
 
 const onPicturesClick = (evt) => {
   const target = evt.target;
