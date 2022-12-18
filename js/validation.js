@@ -88,16 +88,18 @@ const onInputComment = () => {
 inputHashtag.addEventListener('input', onInputHashtag);
 inputComment.addEventListener('input', onInputComment);
 
-const onInputHashtagKeydown = (evt) => {
+const destroyEscape = (evt) => {
   if (evt.key === 'Escape') {
     evt.stopPropagation();
   }
 };
 
+const onInputHashtagKeydown = (evt) => {
+  destroyEscape(evt);
+};
+
 const onInputCommentKeydown = (evt) => {
-  if (evt.key === 'Escape') {
-    evt.stopPropagation();
-  }
+  destroyEscape(evt);
 };
 
 inputHashtag.addEventListener('keydown', onInputHashtagKeydown);
