@@ -15,7 +15,7 @@ const pristine = new Pristine(form, {
 
 let errorMessage = '';
 
-const error = () => errorMessage;
+const getError = () => errorMessage;
 
 const onHashtagInput = (value) => {
   const inputText = value.toLowerCase().trim();
@@ -72,7 +72,7 @@ const allowFormSubmission = () => {
 };
 
 const validateForm = () => {
-  pristine.addValidator(inputHashtag, onHashtagInput, error);
+  pristine.addValidator(inputHashtag, onHashtagInput, getError);
   pristine.addValidator(inputComment, (value) => checkStringLength(value, COMMENT_MAX_LENGTH), ErrorMessage.COMMENT_MAX_LENGTH);
   allowFormSubmission();
 };
